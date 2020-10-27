@@ -44,7 +44,17 @@ q6.addEventListener('click',function(){
 	this.style.color = 'green';
 });
 
+/*Q6 別のやり方
+function changeColor(){
+	document.querySelector('#q6-text').style.color = 'green';	
+}
+or
+document.querySelector('#q6-text').addEventListener('click',function(){
+	this.style.color = 'green';
+});
 
+↑下の段のthisとdocument.querySelector('#q6-text')は同じもの
+*/
 
 // Q 7
 let q7 = document.querySelector('#q7-text');
@@ -52,6 +62,7 @@ q7.addEventListener('mouseover',function(){
 	this.style.color = 'magenta';
 	this.style.backgroundColor = 'pink';
 });
+
 
 
 
@@ -69,7 +80,7 @@ q8.addEventListener('mouseleave',function(){
 // Q 9
 //↓フォームの中の操作
 //inputタグ入力情報の取得（空欄タグのこと　ex.名前欄）
-var input = document.querySelector('#input_name');
+var input = document.querySelector('#q9-input');
 
 //読み込んだときは空欄なので、いつも空文字が表示される
 console.log(input.value);
@@ -84,9 +95,53 @@ function getInput(){
 	input.value = input.value + '様';
 };
 
-↑エラーになる(☝︎ ՞ਊ ՞)☝︎
+
+//↑エラーになる(☝︎ ՞ਊ ՞)☝︎
+
+//Q9 解答
+let btn_q9 = document.querySelector('#q9-btn');
+btn_q9.addEventListener('click',function(){
+
+	//入力した文字を取得したいので用意した変数
+	let input_q9 = document.querySelector('#q9-input');
+
+	//文字を表示したいので用意した変数
+	let result_q9 = document.querySelector('#q9-result');
+
+	result_q9.textContent = input_q9.value;
+});
+
+
+
 
 // Q 10
 
-var input = document.querySelector("#q10-input");
+//var input = document.querySelector("#q10-input");
+
+//id名だと#、class名だと.をつけることを忘れずに！！！
+
+//Q10 解答
+let btn_q10 = document.querySelector('.q10-btn');
+btn_q10.addEventListener('click',function(){
+
+	//入力した文字を取得したいので用意した変数
+	let input_q10 = document.querySelector('#q10-input');
+
+	//文字を表示したいので用意した変数
+	let result_q10 = document.querySelector('#q10-result');
+
+	//20歳未満の方の利用は禁止です
+	//問題　60歳以上を入力された時、「60歳以上の人は半額です」と表示して下さい
+	if (input_q10.value < 20){
+		result_q10.textContent = '20歳未満の方の利用は禁止です';
+	}else if (input_q10.value >= 60){
+		result_q10.textContent = '60歳以上の人は半額です';
+	}else{
+	result_q10.textContent = input_q10.value;
+}
+
+});
+
+
+
 
